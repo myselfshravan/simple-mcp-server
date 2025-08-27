@@ -2,7 +2,13 @@ import {
   queryProjects, 
   getProjectById, 
   getAllProjects, 
-  getProjectStats 
+  getProjectStats,
+  queryBlogs,
+  getBlogByTitle,
+  getBlogByUrl,
+  getAllBlogs,
+  getBlogStats,
+  searchAll
 } from './queryEngine.js';
 
 export const tools = [
@@ -117,6 +123,90 @@ export const tools = [
     inputSchema: {
       type: "object",
       properties: {}
+    },
+  },
+  {
+    name: "query_blogs",
+    description: "Search and query blog posts based on title, description, or keywords",
+    inputSchema: {
+      type: "object",
+      properties: {
+        query: {
+          type: "string",
+          description: "Search query (keywords, blog title, topic, etc.)",
+        },
+        limit: {
+          type: "number",
+          description: "Maximum number of results to return (default: 10)",
+          default: 10
+        }
+      },
+      required: ["query"]
+    },
+  },
+  {
+    name: "get_blog",
+    description: "Get detailed information about a specific blog post by title or URL",
+    inputSchema: {
+      type: "object",
+      properties: {
+        title: {
+          type: "string",
+          description: "Blog post title (partial matches allowed)",
+        },
+        url: {
+          type: "string",
+          description: "Exact blog post URL",
+        }
+      }
+    },
+  },
+  {
+    name: "list_blogs",
+    description: "List all blog posts with optional sorting",
+    inputSchema: {
+      type: "object",
+      properties: {
+        sortBy: {
+          type: "string",
+          description: "Field to sort by",
+          enum: ["title", "url"],
+          default: "title"
+        },
+        order: {
+          type: "string",
+          description: "Sort order",
+          enum: ["asc", "desc"],
+          default: "asc"
+        }
+      }
+    },
+  },
+  {
+    name: "get_blog_stats",
+    description: "Get blog statistics including topic distribution, total count, and recent posts",
+    inputSchema: {
+      type: "object",
+      properties: {}
+    },
+  },
+  {
+    name: "search_all",
+    description: "Search across both projects and blogs simultaneously with unified results",
+    inputSchema: {
+      type: "object",
+      properties: {
+        query: {
+          type: "string",
+          description: "Search query to find across projects and blogs",
+        },
+        limit: {
+          type: "number",
+          description: "Maximum total results to return (default: 10)",
+          default: 10
+        }
+      },
+      required: ["query"]
     },
   }
 ];
@@ -238,6 +328,104 @@ export async function callTool(name, args) {
           {
             type: "text",
             text: JSON.stringify(stats, null, 2),
+          },
+        ],
+      };
+
+    case "query_blogs":
+      const blogQueryResult = queryBlogs(args.query, {
+        limit: args.limit || 10
+      });
+      
+      return {
+        content: [
+          {
+            type: "text",
+            text: JSON.stringify({
+              query: args.query,
+              found: blogQueryResult.total,
+              results: blogQueryResult.results
+            }, null, 2),
+          },
+        ],
+      };
+
+    case "get_blog":
+      let blog = null;
+      if (args.title) {
+        blog = getBlogByTitle(args.title);
+      } else if (args.url) {
+        blog = getBlogByUrl(args.url);
+      }
+      
+      if (!blog) {
+        return {
+          content: [
+            {
+              type: "text",
+              text: JSON.stringify({
+                error: `Blog not found`,
+                suggestion: "Use list_blogs to see available blog posts or try query_blogs with keywords"
+              }, null, 2),
+            },
+          ],
+        };
+      }
+      
+      return {
+        content: [
+          {
+            type: "text",
+            text: JSON.stringify(blog, null, 2),
+          },
+        ],
+      };
+
+    case "list_blogs":
+      const allBlogs = getAllBlogs({
+        sortBy: args.sortBy || 'title',
+        order: args.order || 'asc'
+      });
+      
+      return {
+        content: [
+          {
+            type: "text",
+            text: JSON.stringify({
+              totalBlogs: allBlogs.blogs.length,
+              blogs: allBlogs.blogs,
+              metadata: allBlogs.metadata
+            }, null, 2),
+          },
+        ],
+      };
+
+    case "get_blog_stats":
+      const blogStats = getBlogStats();
+      return {
+        content: [
+          {
+            type: "text",
+            text: JSON.stringify(blogStats, null, 2),
+          },
+        ],
+      };
+
+    case "search_all":
+      const unifiedResults = searchAll(args.query, {
+        limit: args.limit || 10
+      });
+      
+      return {
+        content: [
+          {
+            type: "text",
+            text: JSON.stringify({
+              query: args.query,
+              totalFound: unifiedResults.total,
+              breakdown: unifiedResults.breakdown,
+              results: unifiedResults.results
+            }, null, 2),
           },
         ],
       };

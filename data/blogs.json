@@ -1,0 +1,60 @@
+{
+  "blogs": [
+    {
+      "title": "Migrating the old portfolio website to Next.js 15",
+      "url": "https://blog.shravanrevanna.me/how-i-transformed-static-html-portfolio-site-to-a-nextjs-page",
+      "description": "Rebuilt my old static HTML portfolio site to Next.js 15 with Turbopack, improving performance and developer experience."
+    },
+    {
+      "title": "The Story Behind NoteRep - The Popular Site of College",
+      "url": "https://blog.shravanrevanna.me/story-behind-noterep-the-popular-site-of-college",
+      "description": "How I built a platform that became the go-to resource for 2000+ students, featuring live timetables, AI chatbots, and community-driven content."
+    },
+    {
+      "title": "Automating the Unautomatable: Restaurant Reservation Bot",
+      "url": "https://blog.shravanrevanna.me/automating-the-unautomatable-how-i-built-a-python-bot-to-snag-coveted-restaurant-reservations",
+      "description": "Building a Python automation bot using Selenium to secure coveted restaurant reservations that sell out in under 2 minutes."
+    },
+    {
+      "title": "Automating IPL Ticket Booking for RCB Match",
+      "url": "https://blog.shravanrevanna.me/automating-the-ipl-ticket-booking-for-rcb-match",
+      "description": "Creating an automated ticket booking system to secure high-demand IPL match tickets with web scraping and automation techniques."
+    },
+    {
+      "title": "Building an AI-Powered Financial Statement Analyzer",
+      "url": "https://blog.shravanrevanna.me/building-ai-powered-financial-statement-analyzer",
+      "description": "Developing ParseFi, an intelligent HDFC bank statement explorer with MCP-driven insights, auto-tagging, and transaction reconciliation."
+    },
+    {
+      "title": "IoT Health Monitoring with VigilAI",
+      "url": "https://blog.shravanrevanna.me/vigilai-iot-health-monitoring-elderly-care",
+      "description": "Creating an affordable IoT-based elderly healthcare system with ESP32 sensors, real-time monitoring, and AI-powered interfaces."
+    },
+    {
+      "title": "The Art of Prompt Engineering - Lessons from Building FastIQ",
+      "url": "https://blog.shravanrevanna.me/prompt-engineering-lessons-fastiq-llm-playground",
+      "description": "Insights from building a multi-API LLM playground and the importance of community-driven prompt engineering techniques."
+    },
+    {
+      "title": "From Idea to 800+ Users: Building Calculla GPA Calculator",
+      "url": "https://blog.shravanrevanna.me/building-calculla-gpa-calculator-800-users",
+      "description": "The journey of creating an advanced GPA calculator and predictor that helps students forecast their academic trajectory."
+    },
+    {
+      "title": "Scaling a QR Ordering System to 2000+ Monthly Users",
+      "url": "https://blog.shravanrevanna.me/scaling-qr-ordering-system-2000-users",
+      "description": "Technical challenges and solutions in building a restaurant QR ordering system with real-time kitchen updates and NGO integration."
+    },
+    {
+      "title": "Machine Learning in Healthcare: From Prototype to Production",
+      "url": "https://blog.shravanrevanna.me/ml-healthcare-prototype-production",
+      "description": "Lessons learned from building AI-powered healthcare solutions, focusing on elderly care and real-time health monitoring systems."
+    }
+  ],
+  "metadata": {
+    "total_blogs": 10,
+    "last_updated": "2025-08-27",
+    "topics": ["Next.js", "React", "Python", "Automation", "AI/ML", "IoT", "Healthcare", "Fintech", "LLM", "Web Development"],
+    "categories": ["Technical Tutorial", "Project Story", "Automation", "AI/ML", "Web Development"]
+  }
+}
