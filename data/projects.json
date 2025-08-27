@@ -1,0 +1,181 @@
+{
+  "projects": [
+    {
+      "id": "mcp-server",
+      "name": "Simple MCP Server",
+      "description": "A Model Context Protocol server with HTTP API endpoints, deployable on Vercel. Provides tools for echo functionality and mathematical operations, designed to integrate with LLMs.",
+      "technologies": ["Node.js", "JavaScript", "Vercel", "HTTP API", "MCP", "Serverless"],
+      "impact": "high",
+      "status": "production",
+      "category": "api",
+      "tags": ["mcp", "serverless", "api", "llm-integration"],
+      "links": {
+        "github": "https://github.com/myselfshravan/simple-mcp-server",
+        "live": "https://simple-mcp-server-theta.vercel.app",
+        "docs": "https://simple-mcp-server-theta.vercel.app/api/tools"
+      },
+      "created": "2025-08-27",
+      "highlights": [
+        "Serverless architecture on Vercel",
+        "HTTP API for MCP protocol",
+        "Auto-deployment from GitHub",
+        "CORS-enabled for web integration"
+      ]
+    },
+    {
+      "id": "portfolio-website",
+      "name": "Personal Portfolio",
+      "description": "A modern, responsive portfolio website showcasing projects, skills, and experience. Built with React and deployed on Vercel with smooth animations and mobile-first design.",
+      "technologies": ["React", "Next.js", "Tailwind CSS", "TypeScript", "Framer Motion"],
+      "impact": "high",
+      "status": "production",
+      "category": "web-app",
+      "tags": ["portfolio", "react", "responsive", "animations"],
+      "links": {
+        "github": "https://github.com/myselfshravan/portfolio",
+        "live": "https://shravan.dev"
+      },
+      "created": "2024-12-15",
+      "highlights": [
+        "Modern React with Next.js",
+        "Responsive design for all devices",
+        "Smooth animations with Framer Motion",
+        "SEO optimized"
+      ]
+    },
+    {
+      "id": "task-manager-api",
+      "name": "Task Manager API",
+      "description": "RESTful API for task management with user authentication, CRUD operations, and real-time updates. Built with Express.js and MongoDB, featuring JWT authentication and rate limiting.",
+      "technologies": ["Node.js", "Express.js", "MongoDB", "JWT", "Redis", "Docker"],
+      "impact": "medium",
+      "status": "production",
+      "category": "api",
+      "tags": ["rest-api", "authentication", "database", "docker"],
+      "links": {
+        "github": "https://github.com/myselfshravan/task-manager-api",
+        "docs": "https://task-api.shravan.dev/docs"
+      },
+      "created": "2024-10-22",
+      "highlights": [
+        "JWT-based authentication",
+        "Rate limiting and security headers",
+        "MongoDB with Mongoose ODM",
+        "Docker containerization"
+      ]
+    },
+    {
+      "id": "weather-dashboard",
+      "name": "Weather Dashboard",
+      "description": "Real-time weather dashboard with location-based forecasts, interactive maps, and weather alerts. Integrates with OpenWeatherMap API and provides detailed analytics.",
+      "technologies": ["React", "TypeScript", "Chart.js", "OpenWeatherMap API", "Geolocation"],
+      "impact": "medium",
+      "status": "development",
+      "category": "web-app",
+      "tags": ["weather", "dashboard", "api-integration", "charts"],
+      "links": {
+        "github": "https://github.com/myselfshravan/weather-dashboard"
+      },
+      "created": "2024-11-08",
+      "highlights": [
+        "Real-time weather data",
+        "Interactive weather maps",
+        "Location-based forecasts",
+        "Weather trend analytics"
+      ]
+    },
+    {
+      "id": "chat-app",
+      "name": "Real-time Chat Application",
+      "description": "Full-stack chat application with real-time messaging, user authentication, and group chat functionality. Built with Socket.io for real-time communication.",
+      "technologies": ["React", "Node.js", "Socket.io", "Express.js", "PostgreSQL", "JWT"],
+      "impact": "high",
+      "status": "development",
+      "category": "web-app",
+      "tags": ["real-time", "chat", "websockets", "full-stack"],
+      "links": {
+        "github": "https://github.com/myselfshravan/chat-app"
+      },
+      "created": "2024-09-15",
+      "highlights": [
+        "Real-time messaging with Socket.io",
+        "Group chat functionality",
+        "User authentication and profiles",
+        "Message history and search"
+      ]
+    },
+    {
+      "id": "ml-image-classifier",
+      "name": "Image Classification Service",
+      "description": "Machine learning service for image classification using TensorFlow. Provides REST API for uploading images and getting classification results with confidence scores.",
+      "technologies": ["Python", "TensorFlow", "FastAPI", "Docker", "NumPy", "Pillow"],
+      "impact": "medium",
+      "status": "prototype",
+      "category": "ml",
+      "tags": ["machine-learning", "image-processing", "tensorflow", "api"],
+      "links": {
+        "github": "https://github.com/myselfshravan/ml-image-classifier"
+      },
+      "created": "2024-06-30",
+      "highlights": [
+        "TensorFlow-based image classification",
+        "FastAPI for high-performance REST API",
+        "Confidence scores and multiple predictions",
+        "Docker containerization for deployment"
+      ]
+    },
+    {
+      "id": "expense-tracker",
+      "name": "Personal Expense Tracker",
+      "description": "Mobile-first expense tracking application with category management, budget alerts, and spending analytics. Features offline support and data synchronization.",
+      "technologies": ["React Native", "SQLite", "Redux", "Chart.js", "AsyncStorage"],
+      "impact": "medium",
+      "status": "production",
+      "category": "mobile-app",
+      "tags": ["mobile", "finance", "offline", "analytics"],
+      "links": {
+        "github": "https://github.com/myselfshravan/expense-tracker"
+      },
+      "created": "2024-05-12",
+      "highlights": [
+        "Cross-platform mobile app",
+        "Offline data storage with SQLite",
+        "Budget tracking and alerts",
+        "Spending analytics and reports"
+      ]
+    },
+    {
+      "id": "url-shortener",
+      "name": "URL Shortener Service",
+      "description": "High-performance URL shortening service with analytics, custom aliases, and API access. Built with Redis for caching and PostgreSQL for persistence.",
+      "technologies": ["Node.js", "Redis", "PostgreSQL", "Express.js", "QR Code Generation"],
+      "impact": "low",
+      "status": "production",
+      "category": "utility",
+      "tags": ["url-shortener", "redis", "analytics", "qr-codes"],
+      "links": {
+        "github": "https://github.com/myselfshravan/url-shortener",
+        "live": "https://short.shravan.dev"
+      },
+      "created": "2024-03-20",
+      "highlights": [
+        "High-performance URL shortening",
+        "Click analytics and tracking",
+        "Custom alias support",
+        "QR code generation"
+      ]
+    }
+  ],
+  "metadata": {
+    "total_projects": 8,
+    "last_updated": "2025-08-27",
+    "categories": ["api", "web-app", "mobile-app", "ml", "utility"],
+    "technologies": ["React", "Node.js", "Python", "TypeScript", "JavaScript", "MongoDB", "PostgreSQL", "Redis"],
+    "status_counts": {
+      "production": 4,
+      "development": 2,
+      "prototype": 1,
+      "archived": 0
+    }
+  }
+}
