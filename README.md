@@ -1,120 +1,260 @@
-# Simple MCP Server for Vercel
+# Project Query MCP Server
 
-A Model Context Protocol (MCP) server that provides simple tools via HTTP API, deployable on Vercel.
+A Model Context Protocol (MCP) server that provides intelligent querying of project portfolios via HTTP API, deployable on Vercel. Perfect for LLM integration to answer questions about your projects.
 
-## Features
+## 🎯 Features
 
-- **Echo Tool**: Returns any message you send
-- **Add Tool**: Adds two numbers together
-- **HTTP API**: RESTful endpoints for easy integration
-- **Serverless**: Runs on Vercel's serverless infrastructure
+- **Smart Project Search**: Query projects by keywords, technologies, categories, or impact level
+- **Technology Filtering**: Find projects using specific technologies (React, Node.js, Python, etc.)
+- **Portfolio Analytics**: Get insights and statistics about project distribution
+- **LLM Optimized**: Structured JSON responses perfect for AI integration
+- **Fuzzy Matching**: Intelligent search with relevance scoring
+- **Static Data**: Easy-to-maintain JSON file with project information
+
+## 🔧 MCP Tools
+
+### `query_projects` - Smart Project Search
+Search and filter projects based on multiple criteria with intelligent relevance scoring.
+
+**Parameters:**
+- `query` (required): Search keywords (project name, technology, description)
+- `category`: Filter by category (api, web-app, mobile-app, ml, utility)
+- `status`: Filter by status (production, development, prototype, archived)
+- `impact`: Filter by impact level (high, medium, low)
+- `technology`: Filter by specific technology
+- `limit`: Maximum results to return (default: 10)
+
+### `get_project` - Project Details
+Get comprehensive information about a specific project by ID.
+
+**Parameters:**
+- `id` (required): Project identifier (e.g., 'mcp-server', 'portfolio-website')
+
+### `list_projects` - List All Projects
+List all projects with optional sorting and metadata.
+
+**Parameters:**
+- `sortBy`: Sort field (created, name, impact, status) - default: created
+- `order`: Sort order (asc, desc) - default: desc
+
+### `get_project_stats` - Portfolio Statistics
+Get comprehensive portfolio analytics including technology distribution, project counts, and recent projects.
 
 ## API Endpoints
 
 ### GET /api/tools
-Lists available tools and their schemas.
+Lists all available MCP tools and their schemas.
 
 ```bash
-curl https://your-deployment.vercel.app/api/tools
+curl https://simple-mcp-server-theta.vercel.app/api/tools
 ```
 
 ### POST /api/call
-Execute a tool with given arguments.
+Execute any MCP tool with arguments.
 
 ```bash
-curl -X POST https://your-deployment.vercel.app/api/call \
+curl -X POST https://simple-mcp-server-theta.vercel.app/api/call \
   -H "Content-Type: application/json" \
-  -d '{
-    "name": "echo",
-    "arguments": {"message": "Hello World"}
-  }'
-```
-
-```bash
-curl -X POST https://your-deployment.vercel.app/api/call \
-  -H "Content-Type: application/json" \
-  -d '{
-    "name": "add", 
-    "arguments": {"a": 5, "b": 3}
-  }'
+  -d '{"name": "TOOL_NAME", "arguments": {...}}'
 ```
 
 ### GET /api/health
 Health check endpoint.
 
 ```bash
-curl https://your-deployment.vercel.app/api/health
+curl https://simple-mcp-server-theta.vercel.app/api/health
 ```
 
-## Deployment
+## 🚀 Usage Examples
 
-### 1. Install Dependencies
-
+### Search for React Projects
 ```bash
+curl -X POST https://simple-mcp-server-theta.vercel.app/api/call \
+  -H "Content-Type: application/json" \
+  -d '{
+    "name": "query_projects",
+    "arguments": {
+      "query": "React"
+    }
+  }'
+```
+
+### Get High-Impact Projects
+```bash
+curl -X POST https://simple-mcp-server-theta.vercel.app/api/call \
+  -H "Content-Type: application/json" \
+  -d '{
+    "name": "query_projects", 
+    "arguments": {
+      "query": "",
+      "impact": "high"
+    }
+  }'
+```
+
+### Find Production APIs
+```bash
+curl -X POST https://simple-mcp-server-theta.vercel.app/api/call \
+  -H "Content-Type: application/json" \
+  -d '{
+    "name": "query_projects",
+    "arguments": {
+      "query": "",
+      "category": "api",
+      "status": "production"
+    }
+  }'
+```
+
+### Get Specific Project Details
+```bash
+curl -X POST https://simple-mcp-server-theta.vercel.app/api/call \
+  -H "Content-Type: application/json" \
+  -d '{
+    "name": "get_project",
+    "arguments": {
+      "id": "mcp-server"
+    }
+  }'
+```
+
+### Get Portfolio Statistics
+```bash
+curl -X POST https://simple-mcp-server-theta.vercel.app/api/call \
+  -H "Content-Type: application/json" \
+  -d '{
+    "name": "get_project_stats",
+    "arguments": {}
+  }'
+```
+
+## 🤖 LLM Integration Example
+
+This server is designed to work seamlessly with LLMs. Here's how it works:
+
+**User Query:** *"Show me Shravan's React projects with high impact"*
+
+**LLM Tool Call:**
+```json
+{
+  "name": "query_projects",
+  "arguments": {
+    "query": "React",
+    "impact": "high"
+  }
+}
+```
+
+**Server Response:**
+```json
+{
+  "query": "React",
+  "found": 2,
+  "results": [
+    {
+      "id": "portfolio-website",
+      "name": "Personal Portfolio",
+      "description": "A modern, responsive portfolio website...",
+      "technologies": ["React", "Next.js", "Tailwind CSS"],
+      "impact": "high",
+      "status": "production",
+      "links": {
+        "github": "https://github.com/myselfshravan/portfolio",
+        "live": "https://shravan.dev"
+      },
+      "relevanceScore": 110
+    }
+  ]
+}
+```
+
+**LLM Response:** *"Shravan has 2 high-impact React projects. The main one is his Personal Portfolio built with React, Next.js, and Tailwind CSS. It's currently in production and features responsive design with smooth animations. You can check it out at shravan.dev or view the code on GitHub."*
+
+## 📁 Data Management
+
+### Adding New Projects
+
+Edit `data/projects.json` and add your project following the schema:
+
+```json
+{
+  "id": "unique-project-id",
+  "name": "Project Name",
+  "description": "Detailed description of the project",
+  "technologies": ["Tech1", "Tech2", "Tech3"],
+  "impact": "high",
+  "status": "production", 
+  "category": "web-app",
+  "tags": ["tag1", "tag2"],
+  "links": {
+    "github": "https://github.com/user/repo",
+    "live": "https://project-url.com"
+  },
+  "created": "2024-12-01",
+  "highlights": [
+    "Key feature 1",
+    "Key feature 2"
+  ]
+}
+```
+
+### Project Schema
+
+- **Required**: `id`, `name`, `description`, `technologies`, `impact`, `status`, `category`, `created`
+- **Optional**: `tags`, `links`, `highlights`
+- **Categories**: `api`, `web-app`, `mobile-app`, `ml`, `utility`
+- **Status**: `production`, `development`, `prototype`, `archived`
+- **Impact**: `high`, `medium`, `low`
+
+## 🛠 Deployment
+
+### Quick Deploy
+```bash
+# Clone and deploy
+git clone https://github.com/myselfshravan/simple-mcp-server.git
+cd simple-mcp-server
 npm install
-```
-
-### 2. Deploy to Vercel
-
-**Option A: Using Vercel CLI**
-
-```bash
-# Install Vercel CLI globally
-npm install -g vercel
-
-# Deploy
 vercel --prod
 ```
 
-**Option B: Using GitHub Integration**
+### GitHub Integration
+1. Fork this repository
+2. Connect to Vercel
+3. Auto-deploys on every push
 
-1. Push your code to a GitHub repository
-2. Connect your repository to Vercel at [vercel.com](https://vercel.com)
-3. Vercel will automatically deploy on every push to main branch
-
-**Option C: Using npm script**
-
+### Local Development
 ```bash
-npm run deploy
+npm install
+npm run dev:vercel  # Vercel local environment
+# or
+npm run dev        # Node.js stdio version
 ```
 
-### 3. Test Your Deployment
-
-After deployment, test your endpoints:
-
-```bash
-# Replace YOUR_DEPLOYMENT_URL with your actual Vercel URL
-curl https://YOUR_DEPLOYMENT_URL.vercel.app/api/health
-curl https://YOUR_DEPLOYMENT_URL.vercel.app/api/tools
-```
-
-## Local Development
-
-Run the development server:
-
-```bash
-npm run dev
-```
-
-This starts Vercel's local development environment at `http://localhost:3000`.
-
-## Project Structure
+## 📂 Project Structure
 
 ```
-├── api/              # Vercel serverless functions
-│   ├── tools.js      # GET /api/tools - List available tools
-│   ├── call.js       # POST /api/call - Execute tool calls  
-│   └── health.js     # GET /api/health - Health check
-├── src/
-│   └── handlers.js   # Shared tool logic
-├── package.json      # Project dependencies and scripts
-├── vercel.json       # Vercel deployment configuration
-└── README.md         # This file
+├── api/                    # Vercel serverless functions
+│   ├── call.js            # POST /api/call - Execute MCP tools
+│   ├── health.js          # GET /api/health - Health check
+│   └── tools.js           # GET /api/tools - List tools
+├── data/                   # Project data
+│   └── projects.json      # Portfolio projects database
+├── public/                 # Static files
+│   └── index.html         # Documentation landing page
+├── src/                    # Source code
+│   ├── handlers.js        # MCP tool implementations
+│   └── queryEngine.js     # Search and query logic
+├── package.json           # Dependencies and scripts
+├── vercel.json            # Vercel configuration
+└── README.md              # This documentation
 ```
 
-## Environment Variables
+## 🔧 Customization
 
-No environment variables are required for basic functionality.
+1. **Add Custom Tools**: Extend `src/handlers.js` with new MCP tools
+2. **Modify Search Logic**: Update `src/queryEngine.js` for custom search behavior
+3. **Change Data Schema**: Modify `data/projects.json` structure as needed
+4. **Styling**: Update `public/index.html` for custom landing page
 
 ## License
 

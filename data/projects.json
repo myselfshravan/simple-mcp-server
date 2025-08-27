@@ -1,181 +1,382 @@
 {
   "projects": [
     {
-      "id": "mcp-server",
-      "name": "Simple MCP Server",
-      "description": "A Model Context Protocol server with HTTP API endpoints, deployable on Vercel. Provides tools for echo functionality and mathematical operations, designed to integrate with LLMs.",
-      "technologies": ["Node.js", "JavaScript", "Vercel", "HTTP API", "MCP", "Serverless"],
-      "impact": "high",
-      "status": "production",
-      "category": "api",
-      "tags": ["mcp", "serverless", "api", "llm-integration"],
-      "links": {
-        "github": "https://github.com/myselfshravan/simple-mcp-server",
-        "live": "https://simple-mcp-server-theta.vercel.app",
-        "docs": "https://simple-mcp-server-theta.vercel.app/api/tools"
-      },
-      "created": "2025-08-27",
-      "highlights": [
-        "Serverless architecture on Vercel",
-        "HTTP API for MCP protocol",
-        "Auto-deployment from GitHub",
-        "CORS-enabled for web integration"
-      ]
-    },
-    {
-      "id": "portfolio-website",
-      "name": "Personal Portfolio",
-      "description": "A modern, responsive portfolio website showcasing projects, skills, and experience. Built with React and deployed on Vercel with smooth animations and mobile-first design.",
-      "technologies": ["React", "Next.js", "Tailwind CSS", "TypeScript", "Framer Motion"],
+      "id": "noterep",
+      "name": "NoteRep",
+      "description": "The go-to platform for 2000+ students who ace their exams with last-minute prep, featuring 10+ features/tools including live timetables, real-time calendars, AI Chatbot, Mini SIS and open-source community content",
+      "technologies": [
+        "Next.js",
+        "TypeScript",
+        "Firebase",
+        "Vercel"
+      ],
       "impact": "high",
       "status": "production",
       "category": "web-app",
-      "tags": ["portfolio", "react", "responsive", "animations"],
+      "tags": [
+        "education",
+        "student-platform",
+        "ai-chatbot",
+        "community",
+        "timetables",
+        "calendar"
+      ],
       "links": {
-        "github": "https://github.com/myselfshravan/portfolio",
-        "live": "https://shravan.dev"
+        "github": "https://github.com/myselfshravan/noterep",
+        "live": "https://noterep.vercel.app",
+        "docs": "https://blog.shravanrevanna.me/story-behind-noterep-the-popular-site-of-college"
       },
-      "created": "2024-12-15",
+      "created": "2023-01-15",
       "highlights": [
-        "Modern React with Next.js",
-        "Responsive design for all devices",
-        "Smooth animations with Framer Motion",
-        "SEO optimized"
+        "2000+ active students",
+        "200+ active users",
+        "95K+ views",
+        "#1 Google search ranking",
+        "10+ integrated tools"
       ]
     },
     {
-      "id": "task-manager-api",
-      "name": "Task Manager API",
-      "description": "RESTful API for task management with user authentication, CRUD operations, and real-time updates. Built with Express.js and MongoDB, featuring JWT authentication and rate limiting.",
-      "technologies": ["Node.js", "Express.js", "MongoDB", "JWT", "Redis", "Docker"],
+      "id": "parsefi-ai-statement-analyzer",
+      "name": "ParseFi - AI Statement Analyzer",
+      "description": "AI-powered HDFC bank statement explorer with MCP-driven financial insights (Chatbot) and smart tagging with auto reconciliation of Statements and Transactions",
+      "technologies": [
+        "React",
+        "LLM Integration",
+        "text2sql",
+        "Supabase",
+        "PostgreSQL"
+      ],
+      "impact": "high",
+      "status": "production",
+      "category": "web-app",
+      "tags": [
+        "ai",
+        "fintech",
+        "banking",
+        "statement-analysis",
+        "chatbot",
+        "reconciliation"
+      ],
+      "links": {
+        "github": "https://github.com/myselfshravan/hdfc-statement-explorer",
+        "live": "https://hdfc-account-explorer.vercel.app"
+      },
+      "created": "2024-06-01",
+      "highlights": [
+        "B-tree optimized queries",
+        "Auto transaction tagging",
+        "Smart reconciliation",
+        "MCP-driven insights"
+      ]
+    },
+    {
+      "id": "forkcast-meal-planner",
+      "name": "Forkcast - Plan your meals",
+      "description": "Personalized BMI-based meal generator using Llama 70B to craft perfect calorie-matched nutrition plans tailored to your body's needs",
+      "technologies": [
+        "Python",
+        "Streamlit",
+        "Llama 70B LLM"
+      ],
       "impact": "medium",
       "status": "production",
-      "category": "api",
-      "tags": ["rest-api", "authentication", "database", "docker"],
+      "category": "ml",
+      "tags": [
+        "ai",
+        "health",
+        "nutrition",
+        "meal-planning",
+        "bmi",
+        "personalization"
+      ],
       "links": {
-        "github": "https://github.com/myselfshravan/task-manager-api",
-        "docs": "https://task-api.shravan.dev/docs"
+        "github": "https://github.com/myselfshravan/AI-Meal-Planner",
+        "live": "https://ai-meal-planner.streamlit.app"
       },
-      "created": "2024-10-22",
+      "created": "2024-03-10",
       "highlights": [
-        "JWT-based authentication",
-        "Rate limiting and security headers",
-        "MongoDB with Mongoose ODM",
-        "Docker containerization"
+        "39 GitHub stars",
+        "34 forks",
+        "BMI-based personalization",
+        "Llama 70B integration"
       ]
     },
     {
-      "id": "weather-dashboard",
-      "name": "Weather Dashboard",
-      "description": "Real-time weather dashboard with location-based forecasts, interactive maps, and weather alerts. Integrates with OpenWeatherMap API and provides detailed analytics.",
-      "technologies": ["React", "TypeScript", "Chart.js", "OpenWeatherMap API", "Geolocation"],
-      "impact": "medium",
-      "status": "development",
-      "category": "web-app",
-      "tags": ["weather", "dashboard", "api-integration", "charts"],
-      "links": {
-        "github": "https://github.com/myselfshravan/weather-dashboard"
-      },
-      "created": "2024-11-08",
-      "highlights": [
-        "Real-time weather data",
-        "Interactive weather maps",
-        "Location-based forecasts",
-        "Weather trend analytics"
-      ]
-    },
-    {
-      "id": "chat-app",
-      "name": "Real-time Chat Application",
-      "description": "Full-stack chat application with real-time messaging, user authentication, and group chat functionality. Built with Socket.io for real-time communication.",
-      "technologies": ["React", "Node.js", "Socket.io", "Express.js", "PostgreSQL", "JWT"],
+      "id": "vigilai-iot-health-monitor",
+      "name": "VigilAI - IoT Health Monitor",
+      "description": "Affordable elderly healthcare system with ESP32 sensors featuring AI-powered voice and chat interfaces for direct interaction with real-time vital monitoring",
+      "technologies": [
+        "ESP32",
+        "Python",
+        "Firebase RealtimeDB",
+        "LLMs"
+      ],
       "impact": "high",
-      "status": "development",
-      "category": "web-app",
-      "tags": ["real-time", "chat", "websockets", "full-stack"],
-      "links": {
-        "github": "https://github.com/myselfshravan/chat-app"
-      },
-      "created": "2024-09-15",
-      "highlights": [
-        "Real-time messaging with Socket.io",
-        "Group chat functionality",
-        "User authentication and profiles",
-        "Message history and search"
-      ]
-    },
-    {
-      "id": "ml-image-classifier",
-      "name": "Image Classification Service",
-      "description": "Machine learning service for image classification using TensorFlow. Provides REST API for uploading images and getting classification results with confidence scores.",
-      "technologies": ["Python", "TensorFlow", "FastAPI", "Docker", "NumPy", "Pillow"],
-      "impact": "medium",
       "status": "prototype",
       "category": "ml",
-      "tags": ["machine-learning", "image-processing", "tensorflow", "api"],
+      "tags": [
+        "iot",
+        "healthcare",
+        "elderly-care",
+        "ai",
+        "voice-interface",
+        "real-time-monitoring"
+      ],
       "links": {
-        "github": "https://github.com/myselfshravan/ml-image-classifier"
+        "github": "https://github.com/myselfshravan/VigilAI-IoT-HealthMonitor",
+        "live": "https://vigilai-iot-health-monitor.vercel.app"
       },
-      "created": "2024-06-30",
+      "created": "2024-02-15",
       "highlights": [
-        "TensorFlow-based image classification",
-        "FastAPI for high-performance REST API",
-        "Confidence scores and multiple predictions",
-        "Docker containerization for deployment"
+        "Real-time vitals tracking",
+        "Anomaly detection",
+        "Call alert system",
+        "AI voice interface"
       ]
     },
     {
-      "id": "expense-tracker",
-      "name": "Personal Expense Tracker",
-      "description": "Mobile-first expense tracking application with category management, budget alerts, and spending analytics. Features offline support and data synchronization.",
-      "technologies": ["React Native", "SQLite", "Redux", "Chart.js", "AsyncStorage"],
-      "impact": "medium",
+      "id": "enigma-escape",
+      "name": "Enigma Escape",
+      "description": "AI manipulation game where players must prompt to make LLMs respond with the specified phrases without directly asking.",
+      "technologies": [
+        "Streamlit",
+        "Llama-2-70b",
+        "Firebase"
+      ],
+      "impact": "low",
       "status": "production",
-      "category": "mobile-app",
-      "tags": ["mobile", "finance", "offline", "analytics"],
+      "category": "web-app",
+      "tags": [
+        "game",
+        "ai",
+        "prompt-engineering",
+        "social-engineering",
+        "llm"
+      ],
       "links": {
-        "github": "https://github.com/myselfshravan/expense-tracker"
+        "github": "https://github.com/myselfshravan/EnigmaEscape",
+        "live": "https://enigma-escape-bot.streamlit.app"
       },
-      "created": "2024-05-12",
+      "created": "2024-04-20",
       "highlights": [
-        "Cross-platform mobile app",
-        "Offline data storage with SQLite",
-        "Budget tracking and alerts",
-        "Spending analytics and reports"
+        "Social engineering for AI systems",
+        "Prompt manipulation challenges"
       ]
     },
     {
-      "id": "url-shortener",
-      "name": "URL Shortener Service",
-      "description": "High-performance URL shortening service with analytics, custom aliases, and API access. Built with Redis for caching and PostgreSQL for persistence.",
-      "technologies": ["Node.js", "Redis", "PostgreSQL", "Express.js", "QR Code Generation"],
+      "id": "fnb-qr-ordering-system",
+      "name": "F&B QR Ordering System",
+      "description": "QR-based table food ordering system with real-time kitchen updates and seamless digital billing and built-in NGO contribution feature for socially conscious dining",
+      "technologies": [
+        "React",
+        "TypeScript",
+        "Node.js",
+        "AWS S3"
+      ],
+      "impact": "high",
+      "status": "production",
+      "category": "web-app",
+      "tags": [
+        "qr-code",
+        "ordering-system",
+        "restaurant",
+        "real-time",
+        "ngo",
+        "social-impact"
+      ],
+      "links": {
+        "github": "https://github.com/myselfshravan/fandb-client-website",
+        "live": "https://fnb-client-website.vercel.app",
+        "docs": "https://drive.google.com/file/d/1WgFVc09hAKIXi08Q4JZq9eqSP_mLNs2z/view"
+      },
+      "created": "2023-08-01",
+      "highlights": [
+        "2000+ monthly users",
+        "100+ daily orders",
+        "Real-time kitchen updates",
+        "NGO contribution feature"
+      ]
+    },
+    {
+      "id": "clicks-before-chopsticks",
+      "name": "Clicks before Chopsticks",
+      "description": "Python script that secures Naru Noodle Bar reservations in seconds, beating the 2-minute sellout window every Monday at 8 PM",
+      "technologies": [
+        "Python",
+        "Selenium"
+      ],
       "impact": "low",
       "status": "production",
       "category": "utility",
-      "tags": ["url-shortener", "redis", "analytics", "qr-codes"],
+      "tags": [
+        "automation",
+        "reservation",
+        "selenium",
+        "web-scraping"
+      ],
       "links": {
-        "github": "https://github.com/myselfshravan/url-shortener",
-        "live": "https://short.shravan.dev"
+        "docs": "https://blog.shravanrevanna.me/automating-the-unautomatable-how-i-built-a-python-bot-to-snag-coveted-restaurant-reservations"
       },
-      "created": "2024-03-20",
+      "created": "2023-11-01",
       "highlights": [
-        "High-performance URL shortening",
-        "Click analytics and tracking",
-        "Custom alias support",
-        "QR code generation"
+        "Never missed a reservation",
+        "Beats 2-minute sellout window"
+      ]
+    },
+    {
+      "id": "ipl-ticket-automation",
+      "name": "IPL Ticket Automation",
+      "description": "Automated ticket booking system for high-demand IPL matches, and ticket release notifier",
+      "technologies": [
+        "Python",
+        "Web Automation"
+      ],
+      "impact": "low",
+      "status": "archived",
+      "category": "utility",
+      "tags": [
+        "automation",
+        "ticket-booking",
+        "ipl",
+        "sports",
+        "web-scraping"
+      ],
+      "links": {
+        "docs": "https://blog.shravanrevanna.me/automating-the-ipl-ticket-booking-for-rcb-match"
+      },
+      "created": "2023-05-01",
+      "highlights": [
+        "Successfully booked tickets",
+        "High-demand match automation"
+      ]
+    },
+    {
+      "id": "getplaced-email-organizer",
+      "name": "GetPlaced Email Organizer",
+      "description": "Automated and AI-powered college placement email organizer with LLM-driven JD summarization and keyword extraction that prevents missing job opportunities",
+      "technologies": [
+        "Python",
+        "Email APIs",
+        "LLMs"
+      ],
+      "impact": "medium",
+      "status": "production",
+      "category": "utility",
+      "tags": [
+        "automation",
+        "email",
+        "placement",
+        "ai",
+        "job-search",
+        "summarization"
+      ],
+      "links": {
+        "live": "https://getplaced.vercel.app/"
+      },
+      "created": "2024-01-10",
+      "highlights": [
+        "No more missed opportunities",
+        "LLM-driven JD summarization",
+        "Keyword extraction"
+      ]
+    },
+    {
+      "id": "calculla-gpa-calculator",
+      "name": "Calculla GPA Calculator",
+      "description": "Advanced GPA calculator and predictor using class averages, weights, and exponential factors to precisely forecast your academic trajectory",
+      "technologies": [
+        "Streamlit",
+        "Python"
+      ],
+      "impact": "medium",
+      "status": "production",
+      "category": "utility",
+      "tags": [
+        "education",
+        "gpa",
+        "calculator",
+        "academic",
+        "prediction"
+      ],
+      "links": {
+        "github": "https://github.com/githubhosting/GPAEstimator",
+        "live": "https://gpaestimator.streamlit.app"
+      },
+      "created": "2023-09-15",
+      "highlights": [
+        "800+ logins",
+        "Academic trajectory forecasting",
+        "Exponential factor calculations"
+      ]
+    },
+    {
+      "id": "fastiq-llm-playground",
+      "name": "FastIQ LLM Playground",
+      "description": "Multi-API LLM playground with community-driven prompt templates showcasing the art of prompt engineering",
+      "technologies": [
+        "React",
+        "Firebase",
+        "Multiple LLM APIs"
+      ],
+      "impact": "medium",
+      "status": "production",
+      "category": "api",
+      "tags": [
+        "llm",
+        "playground",
+        "prompt-engineering",
+        "community",
+        "multi-api"
+      ],
+      "links": {
+        "live": "https://fastiq.vercel.app"
+      },
+      "created": "2024-05-01",
+      "highlights": [
+        "Community prompt sharing",
+        "Multi-API integration",
+        "Prompt engineering showcase"
       ]
     }
   ],
   "metadata": {
-    "total_projects": 8,
-    "last_updated": "2025-08-27",
-    "categories": ["api", "web-app", "mobile-app", "ml", "utility"],
-    "technologies": ["React", "Node.js", "Python", "TypeScript", "JavaScript", "MongoDB", "PostgreSQL", "Redis"],
+    "total_projects": 11,
+    "last_updated": "2024-12-01",
+    "categories": [
+      "web-app",
+      "ml",
+      "utility",
+      "api"
+    ],
+    "technologies": [
+      "Next.js",
+      "TypeScript",
+      "Firebase",
+      "Vercel",
+      "React",
+      "LLM Integration",
+      "text2sql",
+      "Supabase",
+      "PostgreSQL",
+      "Python",
+      "Streamlit",
+      "Llama 70B LLM",
+      "ESP32",
+      "Firebase RealtimeDB",
+      "LLMs",
+      "Llama-2-70b",
+      "Node.js",
+      "AWS S3",
+      "Selenium",
+      "Web Automation",
+      "Email APIs",
+      "Multiple LLM APIs"
+    ],
     "status_counts": {
-      "production": 4,
-      "development": 2,
+      "production": 8,
+      "development": 0,
       "prototype": 1,
-      "archived": 0
+      "archived": 2
     }
   }
 }
