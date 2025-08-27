@@ -16,9 +16,11 @@ A Model Context Protocol (MCP) server that provides intelligent querying of both
 ## 🔧 MCP Tools
 
 ### `query_projects` - Smart Project Search
+
 Search and filter projects based on multiple criteria with intelligent relevance scoring.
 
 **Parameters:**
+
 - `query` (required): Search keywords (project name, technology, description)
 - `category`: Filter by category (api, web-app, mobile-app, ml, utility)
 - `status`: Filter by status (production, development, prototype, archived)
@@ -27,55 +29,70 @@ Search and filter projects based on multiple criteria with intelligent relevance
 - `limit`: Maximum results to return (default: 10)
 
 ### `get_project` - Project Details
+
 Get comprehensive information about a specific project by ID.
 
 **Parameters:**
+
 - `id` (required): Project identifier (e.g., 'mcp-server', 'portfolio-website')
 
 ### `list_projects` - List All Projects
+
 List all projects with optional sorting and metadata.
 
 **Parameters:**
+
 - `sortBy`: Sort field (created, name, impact, status) - default: created
 - `order`: Sort order (asc, desc) - default: desc
 
 ### `get_project_stats` - Portfolio Statistics
+
 Get comprehensive portfolio analytics including technology distribution, project counts, and recent projects.
 
 ### `query_blogs` - Smart Blog Search
+
 Search and filter blog posts based on title, description, or keywords with intelligent relevance scoring.
 
 **Parameters:**
+
 - `query` (required): Search keywords (blog title, topic, description)
 - `limit`: Maximum results to return (default: 10)
 
 ### `get_blog` - Blog Details
+
 Get detailed information about a specific blog post by title or URL.
 
 **Parameters:**
+
 - `title`: Blog post title (partial matches allowed)
 - `url`: Exact blog post URL
 
 ### `list_blogs` - List All Blogs
+
 List all blog posts with optional sorting.
 
 **Parameters:**
+
 - `sortBy`: Sort field (title, url) - default: title
 - `order`: Sort order (asc, desc) - default: asc
 
 ### `get_blog_stats` - Blog Statistics
+
 Get comprehensive blog analytics including topic distribution, total count, and recent posts.
 
 ### `search_all` - Unified Search
+
 Search across both projects AND blogs simultaneously with combined, relevance-ranked results.
 
 **Parameters:**
+
 - `query` (required): Search keywords to find across all content
 - `limit`: Maximum total results to return (default: 10)
 
 ## API Endpoints
 
 ### GET /api/tools
+
 Lists all available MCP tools and their schemas.
 
 ```bash
@@ -83,6 +100,7 @@ curl https://simple-mcp-server-theta.vercel.app/api/tools
 ```
 
 ### POST /api/call
+
 Execute any MCP tool with arguments.
 
 ```bash
@@ -92,6 +110,7 @@ curl -X POST https://simple-mcp-server-theta.vercel.app/api/call \
 ```
 
 ### GET /api/health
+
 Health check endpoint.
 
 ```bash
@@ -101,6 +120,7 @@ curl https://simple-mcp-server-theta.vercel.app/api/health
 ## 🚀 Usage Examples
 
 ### Search for React Projects
+
 ```bash
 curl -X POST https://simple-mcp-server-theta.vercel.app/api/call \
   -H "Content-Type: application/json" \
@@ -113,6 +133,7 @@ curl -X POST https://simple-mcp-server-theta.vercel.app/api/call \
 ```
 
 ### Get High-Impact Projects
+
 ```bash
 curl -X POST https://simple-mcp-server-theta.vercel.app/api/call \
   -H "Content-Type: application/json" \
@@ -126,6 +147,7 @@ curl -X POST https://simple-mcp-server-theta.vercel.app/api/call \
 ```
 
 ### Find Production APIs
+
 ```bash
 curl -X POST https://simple-mcp-server-theta.vercel.app/api/call \
   -H "Content-Type: application/json" \
@@ -140,6 +162,7 @@ curl -X POST https://simple-mcp-server-theta.vercel.app/api/call \
 ```
 
 ### Get Specific Project Details
+
 ```bash
 curl -X POST https://simple-mcp-server-theta.vercel.app/api/call \
   -H "Content-Type: application/json" \
@@ -152,6 +175,7 @@ curl -X POST https://simple-mcp-server-theta.vercel.app/api/call \
 ```
 
 ### Get Portfolio Statistics
+
 ```bash
 curl -X POST https://simple-mcp-server-theta.vercel.app/api/call \
   -H "Content-Type: application/json" \
@@ -162,6 +186,7 @@ curl -X POST https://simple-mcp-server-theta.vercel.app/api/call \
 ```
 
 ### Search Blog Posts
+
 ```bash
 curl -X POST https://simple-mcp-server-theta.vercel.app/api/call \
   -H "Content-Type: application/json" \
@@ -174,6 +199,7 @@ curl -X POST https://simple-mcp-server-theta.vercel.app/api/call \
 ```
 
 ### Get Blog by Title
+
 ```bash
 curl -X POST https://simple-mcp-server-theta.vercel.app/api/call \
   -H "Content-Type: application/json" \
@@ -186,6 +212,7 @@ curl -X POST https://simple-mcp-server-theta.vercel.app/api/call \
 ```
 
 ### Search Everything (Projects + Blogs)
+
 ```bash
 curl -X POST https://simple-mcp-server-theta.vercel.app/api/call \
   -H "Content-Type: application/json" \
@@ -199,6 +226,7 @@ curl -X POST https://simple-mcp-server-theta.vercel.app/api/call \
 ```
 
 ### Get Blog Statistics
+
 ```bash
 curl -X POST https://simple-mcp-server-theta.vercel.app/api/call \
   -H "Content-Type: application/json" \
@@ -213,9 +241,11 @@ curl -X POST https://simple-mcp-server-theta.vercel.app/api/call \
 This server is designed to work seamlessly with LLMs for comprehensive knowledge retrieval. Here are some examples:
 
 ### Example 1: Project-Specific Query
+
 **User Query:** *"Show me Shravan's React projects with high impact"*
 
 **LLM Tool Call:**
+
 ```json
 {
   "name": "query_projects",
@@ -229,9 +259,11 @@ This server is designed to work seamlessly with LLMs for comprehensive knowledge
 **LLM Response:** *"Shravan has several high-impact React projects. The main ones include his Personal Portfolio built with React, Next.js, and Tailwind CSS, and the F&B QR Ordering System that serves 2000+ monthly users with real-time kitchen updates."*
 
 ### Example 2: Blog Discovery
+
 **User Query:** *"What has Shravan written about automation?"*
 
 **LLM Tool Call:**
+
 ```json
 {
   "name": "query_blogs",
@@ -244,9 +276,11 @@ This server is designed to work seamlessly with LLMs for comprehensive knowledge
 **LLM Response:** *"Shravan has written several blog posts about automation, including 'Automating the Unautomatable: Restaurant Reservation Bot' where he built a Python bot to secure restaurant reservations, and 'Automating IPL Ticket Booking' showing how he automated high-demand sports ticket purchases."*
 
 ### Example 3: Unified Knowledge Search
+
 **User Query:** *"Tell me everything about Shravan's work with Next.js"*
 
 **LLM Tool Call:**
+
 ```json
 {
   "name": "search_all",
@@ -260,6 +294,7 @@ This server is designed to work seamlessly with LLMs for comprehensive knowledge
 **LLM Response:** *"Shravan has extensive experience with Next.js across both projects and documentation. He built NoteRep using Next.js, serving 2000+ students, and recently wrote a comprehensive blog post about 'Migrating the old portfolio website to Next.js 15' detailing the performance improvements and developer experience enhancements with Turbopack."*
 
 ### Example 4: Cross-Reference Discovery  
+
 **User Query:** *"Show me projects that have related blog posts"*
 
 This query would use `search_all` to find connections between projects and their documentation, providing a complete picture of both the technical implementation and the learning journey.
@@ -321,6 +356,7 @@ Edit `data/blogs.json` and add your blog post:
 ## 🛠 Deployment
 
 ### Quick Deploy
+
 ```bash
 # Clone and deploy
 git clone https://github.com/myselfshravan/simple-mcp-server.git
@@ -330,11 +366,13 @@ vercel --prod
 ```
 
 ### GitHub Integration
+
 1. Fork this repository
 2. Connect to Vercel
 3. Auto-deploys on every push
 
 ### Local Development
+
 ```bash
 npm install
 npm run dev:vercel  # Vercel local environment

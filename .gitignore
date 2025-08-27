@@ -10,3 +10,4 @@ npm-debug.log*
 .tmp/
 coverage/
 .nyc_output/
+claude/*
