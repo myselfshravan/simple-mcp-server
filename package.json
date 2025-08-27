@@ -1,0 +1,32 @@
+{
+  "name": "simple-mcp-server",
+  "version": "1.0.0",
+  "description": "A simple MCP server deployable on Vercel",
+  "main": "src/index.js",
+  "type": "module",
+  "scripts": {
+    "start": "node src/index.js",
+    "dev": "node --watch src/index.js",
+    "dev:vercel": "vercel dev",
+    "build": "echo 'Serverless build - no build step required'",
+    "deploy": "vercel --prod",
+    "test": "echo 'No tests configured'"
+  },
+  "dependencies": {
+    "@modelcontextprotocol/sdk": "^1.0.0"
+  },
+  "devDependencies": {
+    "vercel": "^46.0.5"
+  },
+  "engines": {
+    "node": ">=18"
+  },
+  "keywords": [
+    "mcp",
+    "server",
+    "vercel",
+    "serverless"
+  ],
+  "author": "",
+  "license": "MIT"
+}
