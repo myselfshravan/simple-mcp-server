@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Simple MCP Server</title>
+    <style>
+        body { 
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            max-width: 800px; 
+            margin: 50px auto; 
+            padding: 20px;
+            background: #f8f9fa;
+        }
+        .container {
+            background: white;
+            padding: 40px;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+        h1 { color: #333; }
+        .endpoint { 
+            background: #f1f3f4; 
+            padding: 10px; 
+            margin: 10px 0; 
+            border-radius: 4px;
+            font-family: monospace;
+        }
+        .button {
+            display: inline-block;
+            background: #0070f3;
+            color: white;
+            padding: 10px 20px;
+            text-decoration: none;
+            border-radius: 5px;
+            margin: 5px;
+        }
+        .button:hover { background: #0051cc; }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>🤖 Simple MCP Server</h1>
+        <p>A Model Context Protocol server with HTTP API endpoints.</p>
+        
+        <h2>Available Endpoints</h2>
+        <div class="endpoint">GET /api/health - Health check</div>
+        <div class="endpoint">GET /api/tools - List available tools</div>
+        <div class="endpoint">POST /api/call - Execute tools</div>
+        
+        <h2>Try the API</h2>
+        <a href="/api/health" class="button">Health Check</a>
+        <a href="/api/tools" class="button">List Tools</a>
+        
+        <h2>Example Usage</h2>
+        <pre><code>
+// Echo tool
+curl -X POST /api/call \\
+  -H "Content-Type: application/json" \\
+  -d '{"name": "echo", "arguments": {"message": "Hello World"}}'
+
+// Add tool  
+curl -X POST /api/call \\
+  -H "Content-Type: application/json" \\
+  -d '{"name": "add", "arguments": {"a": 5, "b": 3}}'
+        </code></pre>
+        
+        <p><strong>GitHub:</strong> <a href="https://github.com/myselfshravan/simple-mcp-server">myselfshravan/simple-mcp-server</a></p>
+    </div>
+</body>
+</html>
